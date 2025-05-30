@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Form UI</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f2f2f2;
+      }
+
+      .form-section {
+        background-color: white;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .error input {
+        border-color: red;
+      }
+
+      .error-message {
+        color: red;
+        font-size: 12px;
+      }
+
+      .note {
+        font-size: 12px;
+        color: #555;
+      }
+
+      .value-section {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .value-section button {
+        padding: 5px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-section">
+      <label>Name</label>
+      <input type="text" placeholder="Enter your name" />
+    </div>
+
+    <div class="form-section">
+      <label>Password</label>
+      <input type="password" value="password" />
+    </div>
+
+    <div class="form-section">
+      <label>Focus</label>
+      <input type="text" placeholder="Placeholder text" autofocus />
+    </div>
+
+    <div class="form-section error">
+      <label>Error</label>
+      <input type="text" placeholder="Placeholder text" />
+      <div class="error-message">Please enter a valid value</div>
+    </div>
+
+    <div class="form-section">
+      <label>Date</label>
+      <input type="date" />
+    </div>
+
+    <div class="form-section">
+      <label>Active</label>
+      <input type="text" value="UI" />
+    </div>
+
+    <div class="form-section">
+      <label>Normal with note</label>
+      <input type="text" placeholder="Placeholder text" />
+      <div class="note">This is a small note to help the user</div>
+    </div>
+
+    <div class="form-section">
+      <label>Value</label>
+      <div class="value-section">
+        <button onclick="changeValue(-1)">-</button>
+        <span id="value">0</span>
+        <button onclick="changeValue(1)">+</button>
+      </div>
+    </div>
+
+    <script>
+      function changeValue(change) {
+        const valEl = document.getElementById("value");
+        let current = parseInt(valEl.textContent);
+        let newValue = current + change;
+        if (newValue < 0) newValue = 0;
+        valEl.textContent = newValue;
+      }
+    </script>
+  </body>
+</html>
